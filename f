@@ -28,6 +28,7 @@ exec docker container run \
 --mount type=volume,src=f.,dst=/lab \
 -w /lab \
 -e COLORFGBG \
--e CXXFLAGS="-g -Og -std=c++17 -ftrapv -D_GLIBCXX_DEBUG -I /lab/.include" \
+-e CXXFLAGS="-g -Og -std=c++17 -ftrapv -D_GLIBCXX_DEBUG" \
+-e CPLUS_INCLUDE_PATH=/lab/.include \
 -e VIMINIT="ru defaults.vim | set et sts=-1 sw=2" \
 f "$@"
