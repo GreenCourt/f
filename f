@@ -23,6 +23,7 @@ exec docker container run \
 --rm \
 --init \
 -i $TTY \
+--net=host \
 --security-opt=seccomp=unconfined \
 --cap-add sys_ptrace \
 --mount type=volume,src=f.,dst=/lab \
