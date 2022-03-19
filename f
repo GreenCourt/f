@@ -21,7 +21,6 @@ EOF
 [ -t 0 -a -t 1 ] && TTY=-t || TTY=
 exec docker container run \
 --rm \
---init \
 -i $TTY \
 --net=host \
 --security-opt=seccomp=unconfined \
