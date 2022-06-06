@@ -2,10 +2,11 @@
 [ -n "$(docker image ls -q f)" ] || \
 docker build -t f - << 'EOF' || exit $?
 FROM alpine:latest
-RUN apk --no-cache add vim build-base gdb musl-dbg && rm -f /etc/vim/vimrc && \
-    printf '#!/bin/sh\nexec /usr/bin/gdb -q $*\n' > /usr/local/bin/gdb && chmod +x /usr/local/bin/gdb
+RUN apk --no-cache add vim build-base gdb musl-dbg && rm -f /etc/vim/vimrc
 RUN echo "aug reset_term | exe 'au! vimenter * sleep 100m | set term&' | aug END" > /etc/vim/vimrc
-RUN printf "\
+RUN \
+printf "%s\n" "set startup-quietly on" > /root/.gdbearlyinit && \
+printf "\
 python\n\
 import sys,glob\n\
 sys.path.insert(0, glob.glob('/usr/share/gcc-*')[0] + '/python')\n\
