@@ -24,7 +24,7 @@ exec docker container run \
 --rm \
 -i $TTY \
 --net=host \
--detach-keys "ctrl-_,ctrl-_,ctrl-_,ctrl-_,ctrl-_" \
+--detach-keys "ctrl-_,ctrl-_,ctrl-_,ctrl-_,ctrl-_" \
 --security-opt=seccomp=unconfined \
 --cap-add sys_ptrace \
 --mount type=volume,src=f.,dst=/lab \
