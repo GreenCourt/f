@@ -24,11 +24,13 @@ exec docker container run \
 --rm \
 -i $TTY \
 --net=host \
+--log-driver=none \
 --detach-keys "ctrl-_,ctrl-_,ctrl-_,ctrl-_,ctrl-_" \
 --security-opt=seccomp=unconfined \
 --cap-add sys_ptrace \
 --mount type=volume,src=f.,dst=/lab \
 -w /lab \
+-e TERM \
 -e COLORFGBG \
 -e CXXFLAGS="-std=c++17 -g -ftrapv -D_GLIBCXX_ASSERTIONS -Wall -Wextra -Wno-sign-compare -Wfloat-equal -Wfloat-conversion -Wshadow=local" \
 -e CPLUS_INCLUDE_PATH=/lab/.include \
