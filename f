@@ -3,7 +3,6 @@
 docker build -t f - << 'EOF' || exit $?
 FROM alpine:latest
 RUN apk --no-cache add vim build-base gdb musl-dbg && rm -f /etc/vim/vimrc
-RUN echo "aug reset_term | exe 'au! vimenter * sleep 100m | set term&' | aug END" > /etc/vim/vimrc
 RUN \
 printf "%s\n" "set startup-quietly on" > /root/.gdbearlyinit && \
 printf "\
