@@ -32,7 +32,7 @@ exec docker container run \
 -w /lab \
 -e TERM \
 -e COLORFGBG \
--e CXXFLAGS="-std=c++17 -g -ftrapv -D_GLIBCXX_ASSERTIONS -Wall -Wextra -Wno-sign-compare -Wfloat-equal -Wfloat-conversion -Wshadow=local" \
+-e CXXFLAGS="-std=c++20 -g -ftrapv -D_GLIBCXX_ASSERTIONS -Wall -Wextra -Wno-sign-compare -Wfloat-equal -Wfloat-conversion -Wshadow=local" \
 -e CPLUS_INCLUDE_PATH=/lab/.include \
 -e VIMINIT="ru defaults.vim | set et sts=-1 sw=2" \
 f "$@"
