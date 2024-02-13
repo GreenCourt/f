@@ -20,9 +20,11 @@ CMD ["vim"]
 EOF
 
 [ -t 0 -a -t 1 ] && TTY=-t || TTY=
+size=`stty size 2>/dev/null` || size=
 exec docker container run \
 --rm \
 -i $TTY \
+-e COLUMNS="${size##* }" -e LINES="${size%% *}" \
 --net=host \
 --log-driver=none \
 --detach-keys "ctrl-_,ctrl-_,ctrl-_,ctrl-_,ctrl-_" \
